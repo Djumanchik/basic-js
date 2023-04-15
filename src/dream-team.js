@@ -14,22 +14,40 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 
-const members = ['Matt', 'Ann', 'Dmitry', 'Max']
+const members = [
+        ['David Abram'],
+        ['Robin Attfield'],
+        'Thomas Berry',
+        ['Paul R.Ehrlich'],
+        'donna Haraway',
+        ' BrIaN_gOodWiN  ',
+        {
+          0: 'Serenella Iovino'
+        },
+        'Erazim Kohak',
+        '  val_plumwood',
+      ];
 console.log(members);
 
 function createDreamTeam(members) {
-  let result = members.sort();
-  let teamName = '';
-  console.log (result);
-  for (let i = 0; i < result.length; i++) {
-    if (result[i] == String) {
-      teamName = teamName + result[i[0]];
-      console.log(teamName);
+  if (members === null || typeof(members) !== 'object') {
+    return false;
+  } else {
+
+    let result = [];
+    for (i = 0; i < members.length; i++) {
+      if (typeof(members[i]) === 'string') {
+        members[i] = members[i].toUpperCase();
+        result.push(members[i].trim());
+      }
     }
-  } return teamName;
+    let resultABC = result.sort();
+    let name = resultABC.map((word) => word[0]).join('');
+    return name;
+  }
 }
 
-
+  
 console.log(createDreamTeam(members));
 module.exports = {
   createDreamTeam
