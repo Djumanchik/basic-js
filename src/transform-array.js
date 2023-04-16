@@ -14,7 +14,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 
-const arr = [1, 2, 3, '--discard-next', 1337, '--double-prev', 4, 5];
+const arr = [1, 2, 3, '--double-next', 4, 5];
 console.log (arr);
 
 function transform(arr) {
