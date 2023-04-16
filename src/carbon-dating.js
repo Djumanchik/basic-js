@@ -44,7 +44,7 @@ function dateSample(sampleActivity) {
     }
   }
 }
-console.log(dateSample(sampleActivity))
+// console.log(dateSample(sampleActivity))
 
 module.exports = {
   dateSample

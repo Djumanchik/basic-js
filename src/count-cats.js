@@ -15,11 +15,6 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 
-const matrix = [
-  ['##', 'dd', '00'],
-  ['^^', '..', 'ss'],
-  ['AA', 'dd', 'Oo']
-  ]
 
 function countCats(matrix) {
   let number = 0;
@@ -33,7 +28,7 @@ function countCats(matrix) {
   return number;
 }
 
-console.log(countCats(matrix))
+
 
 
 

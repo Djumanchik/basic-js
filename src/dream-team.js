@@ -14,20 +14,20 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 
-const members = [
-        ['David Abram'],
-        ['Robin Attfield'],
-        'Thomas Berry',
-        ['Paul R.Ehrlich'],
-        'donna Haraway',
-        ' BrIaN_gOodWiN  ',
-        {
-          0: 'Serenella Iovino'
-        },
-        'Erazim Kohak',
-        '  val_plumwood',
-      ];
-console.log(members);
+// const members = [
+//         ['David Abram'],
+//         ['Robin Attfield'],
+//         'Thomas Berry',
+//         ['Paul R.Ehrlich'],
+//         'donna Haraway',
+//         ' BrIaN_gOodWiN  ',
+//         {
+//           0: 'Serenella Iovino'
+//         },
+//         'Erazim Kohak',
+//         '  val_plumwood',
+//       ];
+// console.log(members);
 
 function createDreamTeam(members) {
   if (members === null || typeof(members) !== 'object') {
@@ -48,7 +48,7 @@ function createDreamTeam(members) {
 }
 
   
-console.log(createDreamTeam(members));
+// console.log(createDreamTeam(members));
 module.exports = {
   createDreamTeam
 };
