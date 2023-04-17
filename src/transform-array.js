@@ -14,40 +14,40 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 
-// const arr = { 'foo': 'bar' };
+// const arr = [ 1, 2, 3, 1337, 4, 5 ];
 // console.log (arr);
 // console.log(typeof arr);
 
 function transform(arr) {
+  if (Array.isArray(arr) === false) {
+    throw new Error ("'arr' parameter must be an instance of the Array!");
+  }
   let result = [];
-  if (typeof arr !== 'object' || typeof arr === 'undefined') {  // проверяем массив на соответсвие
-  throw new Error ("'arr' parameter must be an instance of the Array!");
-  } else if (arr[arr.length - 1] === '--double-next' || arr[arr.length - 1] === '--discard-next') { // удаляем оконечные инстуркции
-    arr.splice(1, 1); 
+  if (arr[arr.length - 1] === '--double-next' || arr[arr.length - 1] === '--discard-next') { // удаляем оконечные инстуркции
+    arr.splice(-1, 1); 
+    console.log(arr);
   } else if (arr[0] === '--double-prev' || arr[0] === '--discard-prev') { // удаляем оконечные инстуркции
     arr.splice(0, 1);
-  } else {
-    for (let i = 0; i <= arr.length - 1; i++) {
-      if (arr[i] === '--double-prev') {
-        result.push(arr[i - 1]);
-        arr.splice(i, 1);
-      }
-      if (arr[i] === '--double-next') {
-        result.push(arr[i + 1]);
-        arr.splice(i, 1);
-      }
-      if (arr[i] === '--discard-prev') {
-        result.pop(arr[i]);
-        arr.splice(i, 1);
-      }
-      if (arr[i] === '--discard-next') {
-        arr.splice(i, 2);
-      }
-        result.push(arr[i]);
-        console.log(result);
-      }
-    return result; 
   }
+  for (let i = 0; i <= arr.length - 1; i++) {
+    if (typeof arr[i] === 'number') {
+      result.push(arr[i]);
+    } else if (arr[i] === '--double-prev') {
+      result.push(arr[i - 1]);
+    } else if (arr[i] === '--double-next') {
+      result.push(arr[i + 1]);
+    } else if (arr[i] === '--discard-prev') {
+      result.pop(arr[i]);
+    } else if (arr[i] === '--discard-next') {
+      arr.splice(i, 1);
+    } else if (typeof arr[i] === 'string' || 'boolean' || 'object' || 'symbol') {
+      result.push(arr[i]);
+      // return arr
+      // console.log(arr);
+    }  
+    console.log(result);
+  }
+  return result; 
 };
 
 // console.log(transform(arr));
