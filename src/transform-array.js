@@ -42,8 +42,6 @@ function transform(arr) {
       arr.splice(i, 1);
     } else if (typeof arr[i] === 'string' || 'boolean' || 'object' || 'symbol') {
       result.push(arr[i]);
-      // return arr
-      // console.log(arr);
     }  
     console.log(result);
   }
