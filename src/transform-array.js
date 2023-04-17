@@ -16,13 +16,14 @@ const { NotImplementedError } = require('../extensions/index.js');
 
 const arr = [1, 2, 3, '--discard-next', 1337, '--double-prev', 4, 5];
 console.log (arr);
-// console.log(typeof arr);
 
 function transform(arr) {
+  
   if (Array.isArray(arr) === false) {
     throw new Error ("'arr' parameter must be an instance of the Array!");
   }
-  let array = arr;
+  const array = arr.slice(0);
+  console.log(array);
   let result = [];
   if (array[array.length - 1] === '--double-next' || array[array.length - 1] === '--discard-next') { // удаляем оконечные инстуркции
     array.splice(-1, 1); 
@@ -43,7 +44,7 @@ function transform(arr) {
       array.splice(i, 2);
     } else if (typeof array[i] === 'string' || 'boolean' || 'object' || 'symbol') {
       // result.push(array[i]);
-      return arr;
+      return array;
     }  
     console.log(result);
   }
